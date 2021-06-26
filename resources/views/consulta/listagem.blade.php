@@ -10,7 +10,8 @@
               <th scope="col">Descrição</th>
               <th scope="col">Data</th>
               <th scope="col">Hora</th>
-              <th scope="col">especializacao</th>
+              <th scope="col">Especializacao</th>
+              <th scope="col">Paciente</th>
               <th scope="col" colspan="2">Opções</th>
           </tr>
           </thead>
@@ -22,6 +23,7 @@
                   <td>{{$cons->data->format('d/m/Y')}}</td>
                   <td>{{$cons->hora->format('H:i')}}</td>
                   <td>{{$cons->especializacao->descricao}}</td>
+                  <td>{{$cons->paciente_id == null ? $cons->paciente_id:$cons->paciente->nome}}</td>
                   <td colspan="2">
                       <a href="{{route('consulta_editar', ['id' => $cons->id])}}" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Editar</a>
                       <a href="{{route('consulta_excluir', ['id' => $cons->id])}}" class="btn btn-danger"><i class="far fa-trash-alt"></i> Excluir</a>

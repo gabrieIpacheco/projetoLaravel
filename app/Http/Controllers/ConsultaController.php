@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ConsultaRequest;
 use App\Models\Consulta;
 use App\Models\Especializacao;
+use App\Models\Paciente;
 
 class ConsultaController extends Controller
 {
@@ -22,10 +23,11 @@ class ConsultaController extends Controller
         $especializao = Especializacao::all();
         $consulta = new Consulta();
         $consulta->id = 0;
-        $consulta->descricao = "";
+        $consulta->descricao = "";        
         $consulta->data = "0000-00-00";
         $consulta->hora = "07:00 ";
         $consulta->especializacao_id = 0;
+        $consulta->paciente_id = 0; 
         return view('consulta.formulario', ['consulta' => $consulta, 'especializacao'=> $especializao]);
     }
 
@@ -37,8 +39,9 @@ class ConsultaController extends Controller
         }
         $consulta->descricao = $request->input("descricao");
         $consulta->data = $request->input("data");
-        $consulta->hora = $request->input("hora");
+        $consulta->hora = $request->input("hora");       
         $consulta->especializacao_id = $request->input("especializacao_id");
+        $consulta->paciente_id = $request->input("paciente_id");
 
         $consulta->save();
         $medico = $consulta->especializacao->descricao;
@@ -50,7 +53,8 @@ class ConsultaController extends Controller
     function editar($id){
         $consulta = Consulta::find($id);
         $especializao = Especializacao::all();
-        return view("consulta.formulario", ['consulta'=>$consulta, 'especializacao'=> $especializao]);
+        $paciente = Paciente::all();
+        return view("consulta.formulario", ['consulta'=>$consulta, 'especializacao'=> $especializao, 'paciente' => $paciente]);
     }
 
     function excluir($id){

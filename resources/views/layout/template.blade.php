@@ -65,6 +65,12 @@
         <li class="nav-item">
           <a class="nav-link active" href="{{route('especializacao_listagem')}}">Especilizações</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{route('paciente_listagem')}}">Pacientes</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{route('avaliacao_listagem')}}">Avaliação</a>
+        </li>
         @endauth               
       </ul>
       @auth
@@ -73,7 +79,7 @@
           <a class="nav-link active" href="#">{{auth()->user()->name}}</a>
         </li> 
       <li class="nav-item">
-        <a class="nav-link active" onclick="event.preventDefault();document.getElementById('logout-form').submit()">Sair</a>
+        <a class="nav-link active" onclick="event.preventDefault();document.getElementById('logout-form').submit()" hover="cursor:pointer">Sair</a>
         <form action="{{'logout'}}" id="logout-form" method="post" style="display: none;">{{ csrf_field()}}</form>
       </li> 
     </ul>

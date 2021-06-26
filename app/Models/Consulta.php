@@ -16,7 +16,7 @@ class Consulta extends Model
     public function especializacao(){
         return $this->belongsTo(Especializacao::class);
     }
-    // public function paciente(){
-    //     return $this->belongsTo(Paciente::class);
-    // }
+    public function paciente(){
+        return $this->belongsTo(Paciente::class);
+    }
 }

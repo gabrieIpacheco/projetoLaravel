@@ -47,6 +47,19 @@
       <div class="alert alert-danger">{{ $message }}</div>
       @enderror
     </div>
+    <div class="mb-3">
+      <label for="paciente_id" class="form-label">Paciente</label>
+      <select class="form-select @error('paciente_id') is-invalid @enderror" size="3" name="paciente_id" id="paciente_id" required>
+        @foreach($paciente as $pac)
+        <option 
+        {{old('paciente_id', $consulta->paciente_id) == $pac->id?"selected":""}}
+        value="{{$pac->id}}">{{$pac->nome}}</option>
+        @endforeach
+      </select>
+      @error('paciente_id')
+      <div class="alert alert-danger">{{ $message }}</div>
+      @enderror
+    </div>
     <button type="submit" class="btn btn-primary"><i class="fas fa-cloud-upload-alt"></i> Enviar</button>
   </form>
 @endsection

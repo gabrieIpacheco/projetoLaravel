@@ -13,7 +13,7 @@ class PacienteRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,20 @@ class PacienteRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nome' => 'required|max:100|min:4',
+            'cpf' => 'required|min:11|max:11|unique:paciente'
+        ];
+    }
+
+    public function messages(){
+        return[
+            'nome.required' => 'O nome precisa ser preenchido',
+            'nome.min' => 'O nome precisa ter pelo menos :min letras',
+            'nome.max' => 'O nome não pode ter mais de :max letras',
+            'cpf.required' => 'O CPF precisa ter 11 digitos',
+            'cpf.min' => 'O CPF tem 11 digitos',
+            'cpf.max' => 'O CPF tem 11 digitos',
+            'cpf.unique' => 'Este CPF já foi cadastrado'
         ];
     }
 }

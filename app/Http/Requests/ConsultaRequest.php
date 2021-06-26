@@ -28,7 +28,8 @@ class ConsultaRequest extends FormRequest
             'descricao' => 'required|min:4|max:30',
             'data' => 'required|after:now',
             'hora' => 'required|after: 06:59:59| before: 19:00:01',
-            'especializacao_id' => 'required'
+            'especializacao_id' => 'required',
+            'paciente_id' => 'required'
         ];
     }
 
@@ -42,7 +43,8 @@ class ConsultaRequest extends FormRequest
             'data.after' => 'A data na Consulta não pode ser no passado',
             'hora.after' => 'A hora da consulta deve ser entre as 07:00 e às 19:00 horas',
             'hora.before' => 'A hora da consulta deve ser entre as 07:00 e às 19:00 horas',
-            'especializacao_id.required' => 'A especilização precisa ser escolhida'
+            'especializacao_id.required' => 'A especilização precisa ser escolhida',
+            'paciente_id.required' => 'O paciente precisa ser escolhido'
         ];
     }
 }
