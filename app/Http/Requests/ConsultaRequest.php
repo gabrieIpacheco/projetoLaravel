@@ -40,7 +40,7 @@ class ConsultaRequest extends FormRequest
             'descricao.max' => 'A descricao precisa ter no máximo :max letras',
             'data.required' => 'A data precisa ser preenchida',
             'hora.required' => 'A hora precisa ser preenchida',
-            'data.after' => 'A data na Consulta não pode ser no passado',
+            'data.after' => 'A data da Consulta não pode ser no passado',
             'hora.after' => 'A hora da consulta deve ser entre as 07:00 e às 19:00 horas',
             'hora.before' => 'A hora da consulta deve ser entre as 07:00 e às 19:00 horas',
             'especializacao_id.required' => 'A especilização precisa ser escolhida',

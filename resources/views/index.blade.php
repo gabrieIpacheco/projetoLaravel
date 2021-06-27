@@ -1,11 +1,14 @@
 @extends('layout.template')
 
 @section('conteudo')
-    <pre class="lead">
+    <h3>
+    <pre style="text-align:center" class="lead">
     Este sitema foi densolvido na disciplina de construção de Páginas Web III
     Como Trabalho para o segundo bimestre.
-    Tabelas relacionadas: Paciente, Especialização
-    Tabelas s/ realacionamentos: Consulta, Avaliação
-    A avaliação não tem relacionamento pois e registrada de forma anônima
+    Tabelas relacionadas: 
+    Paciente, Especialização, Consulta
+    Tabelas s/ realacionamentos: 
+    Avaliação, Boletim
     </pre>
+    </h3>
 @endsection

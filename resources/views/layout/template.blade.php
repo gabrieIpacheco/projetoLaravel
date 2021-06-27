@@ -71,6 +71,9 @@
         <li class="nav-item">
           <a class="nav-link active" href="{{route('avaliacao_listagem')}}">Avaliação</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="{{route('boletim_listagem')}}">Boletim</a>
+        </li>
         @endauth               
       </ul>
       @auth

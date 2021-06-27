@@ -6,6 +6,7 @@ use App\Http\Controllers\ConsultaController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\AvaliacaoController;
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\BoletimController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,6 +47,13 @@ route::get('/paciente/novo', [PacienteController::class, 'novo'])->name('pacient
 route::get('/paciente/editar/{id}', [PacienteController::class, 'editar'])->name('paciente_editar');
 route::post('/paciente/salvar', [PacienteController::class, 'salvar'])->name('paciente_salvar');
 route::get('/paciente/excluir/{id}', [PacienteController::class, 'excluir'])->name('paciente_excluir');
+
+//rotas do boletim
+route::get('/boletim', [BoletimController::class, 'index'])->name('boletim_listagem');
+route::get('/boletim/novo', [BoletimController::class, 'novo'])->name('boletim_novo');
+route::get('/boletim/editar/{id}', [BoletimController::class, 'editar'])->name('boletim_editar');
+route::post('/boletim/salvar', [BoletimController::class, 'salvar'])->name('boletim_salvar');
+route::get('/boletim/excluir/{id}', [BoletimController::class, 'excluir'])->name('boletim_excluir');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
