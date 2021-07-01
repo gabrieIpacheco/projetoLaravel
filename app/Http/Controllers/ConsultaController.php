@@ -21,6 +21,7 @@ class ConsultaController extends Controller
 
     function novo(){
         $especializao = Especializacao::all();
+        $paciente = Paciente::all();
         $consulta = new Consulta();
         $consulta->id = 0;
         $consulta->descricao = "";        
@@ -28,7 +29,7 @@ class ConsultaController extends Controller
         $consulta->hora = "07:00 ";
         $consulta->especializacao_id = 0;
         $consulta->paciente_id = 0; 
-        return view('consulta.formulario', ['consulta' => $consulta, 'especializacao'=> $especializao]);
+        return view('consulta.formulario', ['consulta' => $consulta, 'especializacao'=> $especializao, 'paciente' => $paciente]);
     }
 
     function salvar(ConsultaRequest $request){
